@@ -1,0 +1,12 @@
+syntax = "proto3";
+package proto;
+import "google/api/annotations.proto";
+
+message KickoutRequest {
+    enum Reason {
+        OTHER_LOGIN = 0; // 其他设备登录
+    }
+    int32 reason = 1; // 踢人原因
+}
+message KickoutResponse {
+}

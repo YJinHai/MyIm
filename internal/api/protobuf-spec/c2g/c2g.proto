@@ -1,0 +1,23 @@
+syntax = "proto3";
+package proto;
+import "google/api/annotations.proto";
+
+// 发送者发送群消息协议
+message C2GSendRequest {
+    string from = 1; // 发送者
+    string group = 2; // 群
+    string content = 3; // 消息内容
+}
+message C2GSendResponse {
+    int64 msgid = 1; // 落地的消息ID
+}
+// 推送给其他群成员消息协议
+message C2GPushRequest {
+    string from = 1; // 发送者
+    string group = 2; // 群
+    string content = 3; // 消息内容
+    int64 msgid = 4; // 落地的消息ID
+}
+message C2GPushResponse {
+    int64 msgid = 1; // 落地的消息ID
+}

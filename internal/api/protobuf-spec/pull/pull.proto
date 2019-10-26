@@ -1,0 +1,19 @@
+syntax = "proto3";
+package proto;
+import "google/api/annotations.proto";
+
+message C2SPullMessageRequest {
+    string uid = 1;
+    int64 msgid = 2;  // 拉取该消息id以后的离线消息，为0由服务器自行判断
+    int32 limit = 3; //  单次拉取离线消息的数量
+}
+message PullMsg {
+    string from = 1;  // 发送者
+    int64 group = 2;  // 目的群
+    string content = 3; // 消息内容
+    int64 msgid = 4;  // 消息编号
+    int64 send_time = 5;  // 服务器接收消息时间
+}
+message C2SPullMessageResponse {
+    repeated PullMsg msg = 1; // 离线消息数组
+}

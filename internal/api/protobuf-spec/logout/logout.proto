@@ -1,0 +1,10 @@
+syntax = "proto3";
+package proto;
+import "google/api/annotations.proto";
+
+message LogoutRequest {
+    string token = 1; // 从SSO服务器返回的登录token，登录之后保存在客户端
+    string uid = 2;   // 用户ID
+}
+message LogoutResponse {
+}

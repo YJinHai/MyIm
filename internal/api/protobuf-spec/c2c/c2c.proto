@@ -1,0 +1,22 @@
+syntax = "proto3";
+package proto;
+import "google/api/annotations.proto";
+
+// 发送者发送消息的协议
+message C2CSendRequest {
+    string from = 1; // 发送者
+    string to = 2; // 接收者
+    string content = 3; // 消息内容
+}
+message C2CSendResponse {
+    int64 msg_id = 1; // 落地的消息ID
+}
+// 推送给接收者的协议
+message C2CPushRequest {
+    string from = 1;
+    string content = 2;
+    int64 msg_id = 3;
+}
+message C2CPushResponse {
+    int64 msg_id = 1;  // 消息id，服务器收到这个id可以去置位这个消息已读
+}
